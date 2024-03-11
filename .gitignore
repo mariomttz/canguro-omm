@@ -1,0 +1,7 @@
+Pipfile
+Pipfile.lock
+db.sqlite3
+cert.pem
+key.pem
+
+canguro/.env
