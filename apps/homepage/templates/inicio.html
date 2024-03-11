@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Canguro Matemático Mexicano{% endblock %}
+
+{% block content %}
+<article>
+    <!-- Mensajes -->
+    <div class="row justify-content-center">
+        <div class="col-6 mt-3">
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Contenido -->
+    <div class="container-fluid mt-3">
+        <div class="row justify-content-center">
+            <p class="fs-2 fw-bold text-center">¡Canguro Matemático Mexicano 2024!</p>
+            <p class="fs-3 fst-italic text-center">Invitación a las Olimpiadas Mexicanas de Matemáticas</p>
+
+            <p class="fs-5 text-center" style="width: 800px;">El Canguro Matemático es un concurso de
+                matemáticas que se realiza en México y en otros países. El concurso está dirigido a estudiantes de
+                primaria, secundaria y preparatoria. Con el propósito de mostrar que las matemáticas no consisten en
+                aplicar métodos aprendidos de manera mecánica, sino en utilizar ingenio y razonamiento lógico.</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-6 text-center shadow p-3 mb-3 mt-3 bg-body-tertiary rounded">
+                <img src="static/cartel_canguro.png" class="rounded img-fluid"
+                    alt="Cartel del Canguro Matemático Mexicano 2024">
+            </div>
+
+            <p class="text-center">Para descargar el cartel, haz clic <a href="{% static 'cartel_canguro.png' %}"
+                    class="link-offset-2 link-underline link-underline-opacity-0 text-body-secondary"
+                    download="cartel_canguro.png">aquí</a>.</p>
+        </div>
+
+        {% if user.is_authenticated %}
+        {% else %}
+        <div class="row mt-3 justify-content-center">
+            <p class="fs-4 text-center" style="width: 500px;">No pierdas la oportunidad y regístrate si todavía no
+                lo has hecho.</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="d-grid gap-2 col-3">
+                <a class="btn btn-md btn-outline-success" href="{% url 'registrarse' %}" role="button">Registrarse</a>
+                <!--
+                <a class="btn btn-md btn-outline-primary" href="{% url 'iniciar-sesion' %}" role="button">Iniciar
+                    sesión</a>
+                -->
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</article>
+{% endblock %}

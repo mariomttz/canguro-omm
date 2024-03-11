@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Canguro Matemático Mexicano | Contacto{% endblock %}
+
+{% block content %}
+<article>
+    <div class="container-fluid">
+        <!-- Mensajes -->
+        <div class="row justify-content-center">
+            <div class="col-7 my-3">
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Formulario -->
+        <div class="row g-3 justify-content-center">
+            <div class="col-7 shadow p-3 mb-5 bg-body-tertiary rounded">
+                <p class="fs-3 fw-bold">¡Ponte en contacto con nosotros!</p>
+                <p class="fs-5">Cualquier duda o aclaración que tengas no dudes en escribirnos a través de este
+                    formulario o directamente a <b>ommcanguro@gmail.com</b>. En la brevedad de lo posible intentaremos
+                    resolver tu caso.</p>
+
+                <hr>
+
+                <form action="{% url 'contacto' %}" method="post" class="row g-3">
+                    {% csrf_token %}
+
+                    <div class="col-12">
+                        {{ form.nombre_completo | as_crispy_field }}
+                    </div>
+                    <div class="col-12">
+                        {{ form.correo_electronico | as_crispy_field }}
+                    </div>
+                    <div class="col-12">
+                        {{ form.asunto | as_crispy_field }}
+                    </div>
+                    <div class="col-12">
+                        {{ form.mensaje | as_crispy_field }}
+                    </div>
+
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-outline-primary" id="submit-btn">Enviar mensaje</button>
+                        <a class="btn btn-outline-danger" href="{% url 'inicio' %}">Cancelar</a>
+                    </div>
+                </form>
+
+                <!-- Alerta -->
+                <script>
+                    const submitButton = document.getElementById('submit-btn');
+                    submitButton.addEventListener('click', function (event) {
+                        const confirmed = confirm('¿Confirmas que toda la información es correcta? Este proceso puede tomar unos minutos.');
+                        if (confirmed) {
+                            // Enviar el formulario
+                            document.getElementById('form').submit();
+                        } else {
+                            // Evitar que se envíe el formulario
+                            event.preventDefault();
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</article>
+{% endblock %}
