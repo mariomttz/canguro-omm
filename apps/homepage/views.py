@@ -114,7 +114,7 @@ def registrarse(request):
                         email.send()
 
                         messages.success(
-                            request, '¡Tu cuenta ha sido creada exitosamente! Ahora puedes iniciar sesión.')
+                            request, '¡Tu cuenta ha sido creada exitosamente!')
 
                         return redirect('inicio')
 
