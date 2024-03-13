@@ -96,6 +96,7 @@ def registrarse(request):
                         examenes_estudiante.save()
 
                         # Creamos el template para el correo de confirmacion
+                        '''
                         template = render_to_string('correo_confirmacion.html', {
                             'nombre_completo': nombre_completo,
                         })
@@ -112,6 +113,7 @@ def registrarse(request):
                         email.fail_silently = False
                         email.content_subtype = 'html'
                         email.send()
+                        '''
 
                         messages.success(
                             request, '¡Tu cuenta ha sido creada exitosamente!')
