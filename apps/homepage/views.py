@@ -96,7 +96,6 @@ def registrarse(request):
                         examenes_estudiante.save()
 
                         '''
-
                         # Creamos el template para el correo de confirmacion
                         template = render_to_string('correo_confirmacion.html', {
                             'nombre_completo': nombre_completo,
