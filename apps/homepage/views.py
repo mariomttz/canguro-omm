@@ -113,12 +113,12 @@ def registrarse(request):
                         email.fail_silently = False
                         email.content_subtype = 'html'
                         email.send()
+                        '''
 
                         messages.success(
                             request, '¡Tu cuenta ha sido creada exitosamente!')
 
                         return redirect('inicio')
-                        '''
 
                     except Exception as e:
                         # Eliminamos el usuario creado
