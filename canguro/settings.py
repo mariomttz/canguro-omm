@@ -60,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'apps.homepage.middleware.CountryBlockMiddleware',
 ]
 
 ROOT_URLCONF = 'canguro.urls'
@@ -176,3 +177,6 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'ommcanguro@gmail.com'
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+
+# Ruta de la base de datos de IP de países
+GEOIP_PATH = 'GeoLite2-Country.mmdb'
