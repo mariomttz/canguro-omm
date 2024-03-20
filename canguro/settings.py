@@ -179,4 +179,4 @@ EMAIL_HOST_USER = 'ommcanguro@gmail.com'
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
 # Ruta de la base de datos de IP de países
-GEOIP_PATH = 'GeoLite2-Country.mmdb'
+GEOIP_PATH = '/opt/render/project/src/GeoLite2-Country.mmdb'
