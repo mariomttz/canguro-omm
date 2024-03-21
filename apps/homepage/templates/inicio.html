@@ -23,6 +23,7 @@
     <div class="row justify-content-center">
         <div class="col-6 shadow p-3 mt-5 mb-5 bg-body-tertiary rounded">
             <p class="fs-3 fw-bold">¡Avisos!</p>
+            <hr>
             <ol type="1">
                 <li>La presente es para pedir una disculpa por los inconvenientes que han surgido con el registro para
                     el examen Canguro Matemático/invitación a la Olimpiada de Matemáticas. El examen se aplicará, como
@@ -35,8 +36,16 @@
                 <li>Es posible registrarse más de una vez con el propósito de resolver más de un examen. Para tener
                     derecho a resolver cualquiera de los exámenes, el grado escolar deberá sé el especificado o menor.
                 </li>
+                <li>Para acceder al examen, <a href="{% url 'iniciar-sesion' %}" class="link-underline-primary">ingresa
+                        a tu cuenta</a>. O créala <a href="{% url 'registrarse' %}"
+                        class="link-underline-primary">aquí</a>.</li>
+                <li>El lunes tendrás acceso a ver tu puntuación total. Las soluciones completas de todas las preguntas
+                    las podrás ver a partir del 21 de abril en <a href="https://shi.matmor.unam.mx/canguro/"
+                        target="_blank" rel="noopener noreferrer"
+                        class="link-underline-primary">https://shi.matmor.unam.mx/canguro/</a></li>
+                <li>El periodo de aplicación del examen se extenderá hasta las 24 horas del domingo 24 (hora del centro
+                    de México)</li>
             </ol>
-
             <hr>
             <p><b>Nota</b>: para ingresar al examen debes <a href="{% url 'iniciar-sesion' %}"
                     class="link-underline-primary">iniciar sesión</a>, utilizando el nombre de usuario y contraseña que
