@@ -1,5 +1,4 @@
 # Libraries and modules
-from django.utils.decorators import decorator_from_middleware
 from django.contrib.auth import authenticate, login, logout
 from django.core.mail import EmailMessage, BadHeaderError
 from django.template.loader import render_to_string
@@ -11,9 +10,6 @@ from . import middleware
 from . import afunctions
 from . import models
 from . import forms
-
-# Decorador para bloquear el acceso a usuarios de otros países
-country_block = decorator_from_middleware(middleware.CountryBlockMiddleware)
 
 # Vistas para la aplicacion homepage
 
@@ -101,7 +97,7 @@ def registrarse(request):
                         examenes_estudiante.save()
 
                         messages.success(
-                            request, '¡Tu cuenta ha sido creada exitosamente!')
+                            request, '¡Tu cuenta ha sido creada exitosamente! Ahora puedes iniciar sesión.')
 
                         return redirect('inicio')
 
@@ -182,7 +178,6 @@ def examen(request):
     return render(request, 'examen.html')
 
 
-@country_block
 def contacto(request):
     if request.method == 'POST':
         form = forms.contacto(request.POST)
