@@ -177,5 +177,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'ommcanguro@gmail.com'
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
-# Ruta de la base de datos de IP de países
+# Bloqueo de acceso a usuarios de otros países
+# diferentes a México
+ALLOWED_COUNTRIES = ['MX']
 GEOIP_PATH = '/opt/render/project/src/GeoLite2-Country.mmdb'
