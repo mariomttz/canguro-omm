@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Canguro Matemático Mexicano | Examen 2024{% endblock %}
+
+{% block content %}
+<article>
+    <!-- Contenido -->
+    <div class="row justify-content-center mt-5">
+        <div class="card" style="width: 22rem;">
+            <img src="{% static 'canguro_examen.jpg' %}" class="card-img-top rounded-bottom mt-2"
+                alt="Un canguro muy inteligente resolviendo un examen de matematicas.">
+            <div class="card-body">
+                <h5 class="card-title">Examen Canguro Matemático Mexicano 2024</h5>
+                <p class="card-text">Al presionar el botón "Ir al examen" serás redirigido, al examen Canguro
+                    Matemático/invitación a la Olimpiada de Matemáticas 2024.</p>
+                <a href="https://forms.gle/eYe4LiuoGj4jtnoq8" target="_blank" rel="noopener noreferrer"
+                    class="btn btn-primary">Ir al examen</a>
+            </div>
+        </div>
+    </div>
+</article>
+{% endblock %}

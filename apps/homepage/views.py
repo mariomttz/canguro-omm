@@ -95,26 +95,6 @@ def registrarse(request):
 
                         examenes_estudiante.save()
 
-                        '''
-                        # Creamos el template para el correo de confirmacion
-                        template = render_to_string('correo_confirmacion.html', {
-                            'nombre_completo': nombre_completo,
-                        })
-
-                        # Creamos el correo de confirmacion
-                        email = EmailMessage(
-                            'Correo de confirmación al Canguro Matemático Mexicano 2024',
-                            template,
-                            settings.EMAIL_HOST_USER,
-                            [correo_electronico]
-                        )
-
-                        # Enviamos el correo de confirmacion
-                        email.fail_silently = False
-                        email.content_subtype = 'html'
-                        email.send()
-                        '''
-
                         messages.success(
                             request, '¡Tu cuenta ha sido creada exitosamente!')
 
@@ -164,7 +144,7 @@ def iniciar_sesion(request):
                     messages.success(
                         request, f'Hola, {nombre_usuario}. ¡Has iniciado sesión exitosamente!')
 
-                    return redirect('inicio')
+                    return redirect('examen')
 
                 else:
                     messages.error(
@@ -191,6 +171,10 @@ def cerrar_sesion(request):
         request, '¡Tu sesión ha sido cerrada exitosamente!')
 
     return redirect('inicio')
+
+
+def examen(request):
+    return render(request, 'examen.html')
 
 
 def contacto(request):
