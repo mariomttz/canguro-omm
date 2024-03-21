@@ -6,7 +6,7 @@ from geoip2.database import Reader
 # Clase para bloquear el acceso a usuarios de otros países
 
 
-class CountryBlockMiddleware:
+class CountryBlock:
     def __init__(self, get_response):
         self.get_response = get_response
         self.geoip_reader = Reader(settings.GEOIP_PATH)
