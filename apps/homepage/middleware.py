@@ -3,7 +3,9 @@ import geoip2.database
 
 from django.conf import settings
 from django.http import HttpResponseForbidden
-# 
+
+# Clase para bloquear el acceso a usuarios de otros países
+
 
 class CountryBlockMiddleware:
     def __init__(self, get_response):
@@ -17,6 +19,7 @@ class CountryBlockMiddleware:
                 country = self.geoip_reader.country(ip_address)
                 if country.country.iso_code != 'MX':  # Check if country is not Mexico
                     return HttpResponseForbidden("Access denied from your location.")
+                
             except Exception as e:
                 # Handle exceptions if any
                 pass
