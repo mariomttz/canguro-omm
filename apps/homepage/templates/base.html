@@ -35,20 +35,21 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
+                        {% if user.is_authenticated %}
                         <a class="nav-link active" aria-current="page" href="{% url 'examen' %}">Examen Canguro Matemático Mexicano
                             2024</a>
+                        {% else %}
+                        {% endif %}
                     </li>
                 </ul>
 
                 <div class="d-flex gap-2">
                     {% if user.is_authenticated %}
                     <a class="btn btn-outline-danger" href="{% url 'cerrar-sesion' %}">Cerrar sesión</a>
-                    {% else %}
                     <a class="btn btn-outline-success" href="{% url 'registrarse' %}">Registrarse</a>
-                    <!--
                     <a class="btn btn-outline-primary" href="{% url 'iniciar-sesion' %}">Iniciar sesión</a>
+                    {% else %}
                     {% endif %}
-                    -->
                 </div>
             </div>
         </div>
